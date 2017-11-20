@@ -13,7 +13,7 @@ import CoreLocation
 class ClosestSpotPage: UIViewController, UITableViewDelegate, UITableViewDataSource , MKMapViewDelegate{
 
     var SpotsTableView = UITableView()
-    var mapViewFromList = MKMapView()
+    var mapViewFromList : MKMapView!
 
     var stationAnnotation = MKPointAnnotation()
     var myPostion = CurrentCoordinate()

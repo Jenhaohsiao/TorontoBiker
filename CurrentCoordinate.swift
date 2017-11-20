@@ -17,8 +17,8 @@ class CurrentCoordinate :NSObject ,MKMapViewDelegate, CLLocationManagerDelegate,
     public static var mapManager = CLLocationManager()
     public static var currentLoction = CLLocationCoordinate2D()
 
-    var lat : Double = 0
-    var lon : Double = 0
+    var lat : Double!
+    var lon : Double!
 
 
     override init(){
@@ -49,9 +49,6 @@ class CurrentCoordinate :NSObject ,MKMapViewDelegate, CLLocationManagerDelegate,
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
 
         CurrentCoordinate.currentLoction = locations[0].coordinate
-//
-//        self.lat = CurrentCoordinate.currentLoction.latitude
-//        self.lon = CurrentCoordinate.currentLoction.longitude
 
 
         if self.lat != 0.0 {
