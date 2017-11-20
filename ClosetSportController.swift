@@ -91,6 +91,7 @@ final class ClosetSportController {
             CLLocationCoordinate2DMake(CurrentCoordinate.currentLoction.latitude,
                                        CurrentCoordinate.currentLoction.longitude)
         let point1 = MKMapPointForCoordinate(coordinate1)
+        print("point1=",(point1))
 
         let coordinate2: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lon)
         let point2 = MKMapPointForCoordinate(coordinate2)

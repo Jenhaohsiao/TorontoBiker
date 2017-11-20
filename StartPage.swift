@@ -26,8 +26,9 @@ class StartPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view.backgroundColor = UIColor.white
+        
+        CurrentCoordinate.mapManager.startUpdatingLocation()
 
         // Background image
         
@@ -84,7 +85,7 @@ class StartPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //enroll History cell
         
-        SpotsTableView.register(ClosestSpotCell.self, forCellReuseIdentifier: "SpotCell")
+        SpotsTableView.register(StartPageCell.self, forCellReuseIdentifier: "StartPageCell")
         // set the delegate
         
         SpotsTableView.delegate = self
@@ -177,8 +178,8 @@ class StartPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "SpotCell"
-        let cell = SpotsTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ClosestSpotCell
+        let cellIdentifier = "StartPageCell"
+        let cell = SpotsTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! StartPageCell
         
         
         
@@ -207,11 +208,12 @@ class StartPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.labelDistance.highlightedTextColor = UIColor.white
         cell.satationName.highlightedTextColor = UIColor.white
         
-        
+
+
         return cell
     }
     
-    func checkCellTextColor(cell: ClosestSpotCell,bikes:Int, docks:Int, distance:Double) {
+    func checkCellTextColor(cell: StartPageCell,bikes:Int, docks:Int, distance:Double) {
         
         cell.bikesAvailable.textColor = UIColor.init (red: 0, green: 0.2353, blue: 0.7059, alpha: 1.0)
         if bikes == 0 {
@@ -256,7 +258,7 @@ class StartPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 160
     }
     
 
